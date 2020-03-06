@@ -39,7 +39,7 @@ docker run -it -v data:/data -v results:/results -p 8888:8888 dl-bioinformatics-
 
 ### Data Description
 
-Look at the data notebook
+Look at the [data notebook](./notebooks/Data\ Exploration.ipynb) for a data description and analysis.
 
 ### Plan
 
