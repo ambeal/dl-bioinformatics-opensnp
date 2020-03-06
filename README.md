@@ -1,46 +1,62 @@
-# dl-bioinformatics-opensnp
- 
-Project title
-Open Source Auto-encoder SNP Clustering for Myers Briggs Personality Types
+# Open Source Auto-encoder SNP Clustering for Myers Briggs Personality Types
 
-Motivation
-To determine if Myers Briggs Personality type has genetic valitiy using autoencoder clustering of OpenSNP varients and self reported Myers Briggs personlity type.        
+## Objective
+The objective of this project is to use recent advancements in artificial intelligence, namely Deep Learning, to investigate data in the freely available openSNP database.
 
-Build status
+The initial investigation of this project will be to determine whether or not a [Myers-Brigg Personality Type](https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator) has any correlation to genetic variants.
 
-Build Status Windows Build Status
+The OpenSNP dataset has self-reported personality types along with their genetic varients. Having 8 well defined classes gives ample room for exploration, classification, and clustering.
 
-Code style
-Python 
+## Technologies used
 
+### Software & libraries
+* Docker ([GPU enabled](https://github.com/NVIDIA/nvidia-docker)
+* Python3
+* Pandas / NumPy
+* Matplotlib / Seaborn
+* [RAPIDS](rapids.ai) (GPU accelerated Pandas / NumPy libary)
+* PyTorch
 
-Tech/framework used
+### Artificial Intelligence
+* Variational Auto-Encoders (VAE)
+* K-Means Clustering
+* ...
 
-* Generate an auto-encoder that is able to take a collection of snips, encode them to a Z (latent space), and decode them back to similar snips.
-* In that Latent space, locate all the elements of each myers brigs and generate 8 clusters.
-* Later predict on Myers brigs based on which cluster a SNP collection belongs to.
+## Environment setup
+This application will be fully containerized using GPU optimized.
 
-Built with
+## How to use
+1. Build the Docker image.
+docker build -t dl-bioinformatics-opensnp .
+2. Download the dataset at https://opensnp.org and unpack it to data.
 
-
-Code Example
-
-
-Installation
-
-
-API Reference
-
-
-Tests
-
-
-How to use?
-
-Contribute
+3. Start a docker container.
+docker run -it -v data:/data -v results:/results -p 8888:8888 dl-bioinformatics-opensnp
+4. Open the application Jupyter Notebooks and run all cells.
 
 
-Credits
+## Development Plan
+
+### Data Description
+
+Look at the data notebook
+
+### Plan
+
+This is the initial plan, see the Jupyter Notebooks for additional details.
+
+1. Import and parse OpenSNP data
+2. Visualize and analyze OpenSNP data
+3. Design and train an auto-encoder against the OpenSNP data
+4. Attempt to cluster the latent space enoded SNPs
+5. Attempt to use clustering to predict Myers Briggs type
+6. Build a Deep Learning pipeline 
+
+## How to contribute
+If you would like to contribute, please feel free to fork this repo, develop your own code, and open a pull request. We are also happy to take any issues or other feedback.
+
+## Credits
 https://opensnp.org
 
-License
+## License
+See [License](LICENSE)
