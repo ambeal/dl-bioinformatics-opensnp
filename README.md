@@ -26,14 +26,33 @@ The OpenSNP dataset has self-reported personality types along with their genetic
 This application will be fully containerized using GPU optimized.
 
 ## How to use
+
+### Local development
+For local development without the use of containers, VMs, or GPUs conda can be used for environment setup.
+
+1. Install Anaconda3
+2. Run the setup script.
+```sh
+./setup.sh
+```
+3. Execute the jupyter command
+```sh
+source activate bio && jupyter lab --ip=0.0.0.0 --port=8888 --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.allow_origin='*' --NotebookApp.base_url=${NB_PREFIX}
+```
+4. Open the application Jupyter Notebooks and run all cells
+
+### Containerized development
+In a containerized environment a Dockerfile can be used to build a Docker image for development and runtime.
+
 1. Build the Docker image.
 docker build -t dl-bioinformatics-opensnp .
 2. Download the dataset at https://opensnp.org and unpack it to data.
 
 3. Start a docker container.
+```sh
 docker run -it -v data:/data -v results:/results -p 8888:8888 dl-bioinformatics-opensnp
+```
 4. Open the application Jupyter Notebooks and run all cells.
-
 
 ## Development Plan
 
