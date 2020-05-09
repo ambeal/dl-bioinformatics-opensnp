@@ -1,4 +1,4 @@
-# Open Source Auto-encoder SNP Clustering for Myers Briggs Personality Types
+# Auto-encoder Clustering for Myers Briggs Personality Types with Open Source SNP Data
 
 ## Objective
 The objective of this project is to use recent advancements in artificial intelligence, namely Deep Learning, to investigate data in the freely available openSNP database.
